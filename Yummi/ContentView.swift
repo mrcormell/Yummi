@@ -9,8 +9,7 @@ import SwiftUI
 
 struct Ingredient {
     let name: String
-    var quantity: Int
-    let unit: Unit
+    var measurement: Measurement<Dimension>
     let category: IngredientCategory
     let expiry: Date
     
@@ -19,7 +18,7 @@ struct Ingredient {
     }
     
     var display: String {
-        "\(quantity) \(unit.rawValue) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
+        "\(measurement.description) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
     }
 }
 
@@ -32,7 +31,7 @@ enum IngredientCategory: String {
 }
 
 struct ContentView: View {
-    let myIngredient: Ingredient = Ingredient(name: "Minced Beef", quantity: 500, unit: .grams, category: .meat, expiry: Date.now.addingTimeInterval(86400))
+    let myIngredient: Ingredient = Ingredient(name: "Minced Beef", measurement: Measurement(value: 600, unit: UnitMass.grams), category: .meat, expiry: Date.now.addingTimeInterval(86400))
     
     var body: some View {
         Text(myIngredient.display)

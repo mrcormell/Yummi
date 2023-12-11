@@ -22,12 +22,28 @@ final class YummiUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testCyclingThroughFirstTwoRecipesUpdatesDisplayCorrectly() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        XCTAssertEqual(app.staticTexts.firstMatch.label, "600.0 g of Minced Beef (meat) which expires on December 12, 2023")
+        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Next Ingredient"]/*[[".cells.buttons[\"Next Ingredient\"]",".buttons[\"Next Ingredient\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCTAssertEqual(app.staticTexts.firstMatch.label, "500.0 L of Whole Milk (dairy) which expires on December 11, 2023")
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testNextIngredientChangesDisplayToSomethingDifferent() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        //assuming no identical ingredients in data set
+        for _ in 1...10 {
+            let ingredientDisplay = app.staticTexts.firstMatch.label
+            app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Next Ingredient"]/*[[".cells.buttons[\"Next Ingredient\"]",".buttons[\"Next Ingredient\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+            let ingredientDisplayAfterNext = app.staticTexts.firstMatch.label
+            XCTAssertNotEqual(ingredientDisplay, ingredientDisplayAfterNext)
+        }
+
     }
 
     func testLaunchPerformance() throws {

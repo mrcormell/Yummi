@@ -17,8 +17,16 @@ struct Ingredient: Hashable {
         "\(expiry.formatted(date: .long, time: .omitted))"
     }
     
+    var measurementDisplayImperial: String {
+        "\(measurement.converted(to: UnitVolume.cups).description)"
+    }
+    
     var display: String {
         "\(measurement.description) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
+    }
+    
+    var displayImperial: String {
+        "\(measurementDisplayImperial) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
     }
 }
 
@@ -26,7 +34,7 @@ enum Unit: String {
     case grams, millileters, tsp, tbsp, cup
 }
 
-enum IngredientCategory: String {
+enum IngredientCategory: String, CaseIterable {
     case meat, fish, dairy, fruit, vegetable, cupboard
 }
 
@@ -38,11 +46,13 @@ struct ContentView: View {
     
     @State var currentIngredientIndex = 0
     @State var enteredIngredientName = ""
+    @State var selectedCategory = IngredientCategory.cupboard
+    @State var selectedExpiryDate: Date = Date.now
     
     var body: some View {
         Form {
             Section {
-                Text(ingredients[currentIngredientIndex].display)
+                Text(ingredients[currentIngredientIndex].displayImperial)
                 Button("Next Ingredient") {
                     if currentIngredientIndex + 1 >= ingredients.count {
                         currentIngredientIndex = 0
@@ -53,8 +63,14 @@ struct ContentView: View {
             }
             Section(content: {
                 TextField("Name", text: $enteredIngredientName)
+                Picker("Category", selection: $selectedCategory) {
+                    ForEach(IngredientCategory.allCases, id:\.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                DatePicker("Expiry Date", selection: $selectedExpiryDate, in: Date.now..., displayedComponents: .date)
                 Button("Add") {
-                    ingredients.append(Ingredient(name: enteredIngredientName, measurement: Measurement(value: 1, unit: UnitMass.kilograms), category: .cupboard, expiry: Date.now.addingTimeInterval(86400)))
+                    ingredients.append(Ingredient(name: enteredIngredientName, measurement: Measurement(value: 1, unit: UnitMass.kilograms), category: selectedCategory, expiry: selectedExpiryDate))
                 }
             }, header: { Text("Add new ingredient")}
             )

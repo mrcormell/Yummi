@@ -48,11 +48,13 @@ struct ContentView: View {
     @State var enteredIngredientName = ""
     @State var selectedCategory = IngredientCategory.cupboard
     @State var selectedExpiryDate: Date = Date.now
+    @State var quantity: Int = 1
+    @State var selectedUnit: Dimension = UnitMass.kilograms
     
     var body: some View {
         Form {
             Section {
-                Text(ingredients[currentIngredientIndex].displayImperial)
+                Text(ingredients[currentIngredientIndex].display)
                 Button("Next Ingredient") {
                     if currentIngredientIndex + 1 >= ingredients.count {
                         currentIngredientIndex = 0
@@ -63,6 +65,12 @@ struct ContentView: View {
             }
             Section(content: {
                 TextField("Name", text: $enteredIngredientName)
+                Picker("Unit", selection: $selectedUnit) {
+                    ForEach([UnitMass.kilograms, UnitMass.grams, UnitVolume.liters], id: \.self) {
+                        Text($0.symbol)
+                    }
+                }
+                Stepper("\(quantity) \(selectedUnit.symbol)", value: $quantity)
                 Picker("Category", selection: $selectedCategory) {
                     ForEach(IngredientCategory.allCases, id:\.self) {
                         Text($0.rawValue)
@@ -70,7 +78,7 @@ struct ContentView: View {
                 }
                 DatePicker("Expiry Date", selection: $selectedExpiryDate, in: Date.now..., displayedComponents: .date)
                 Button("Add") {
-                    ingredients.append(Ingredient(name: enteredIngredientName, measurement: Measurement(value: 1, unit: UnitMass.kilograms), category: selectedCategory, expiry: selectedExpiryDate))
+                    ingredients.append(Ingredient(name: enteredIngredientName, measurement: Measurement(value: Double(quantity), unit: selectedUnit), category: selectedCategory, expiry: selectedExpiryDate))
                 }
             }, header: { Text("Add new ingredient")}
             )

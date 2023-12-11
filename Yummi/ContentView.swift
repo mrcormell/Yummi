@@ -7,15 +7,23 @@
 
 import SwiftUI
 
+struct Ingredient {
+    let name: String
+    var quantity: Int
+    let unit: String
+    let category: String
+    let expiry: Date
+    
+    var display: String {
+        "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry.description)"
+    }
+}
+
 struct ContentView: View {
+    let myIngredient: Ingredient = Ingredient(name: "Minced Beef", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now)
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text(myIngredient.display)
     }
 }
 

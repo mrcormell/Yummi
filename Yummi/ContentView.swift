@@ -10,17 +10,29 @@ import SwiftUI
 struct Ingredient {
     let name: String
     var quantity: Int
-    let unit: String
-    let category: String
+    let unit: Unit
+    let category: IngredientCategory
     let expiry: Date
     
+    var expiryDateDisplay: String {
+        "\(expiry.formatted(date: .long, time: .omitted))"
+    }
+    
     var display: String {
-        "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry.description)"
+        "\(quantity) \(unit.rawValue) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
     }
 }
 
+enum Unit: String {
+    case grams, millileters, tsp, tbsp, cup
+}
+
+enum IngredientCategory: String {
+    case meat, fish, dairy, fruit, vegetable, cupboard
+}
+
 struct ContentView: View {
-    let myIngredient: Ingredient = Ingredient(name: "Minced Beef", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now)
+    let myIngredient: Ingredient = Ingredient(name: "Minced Beef", quantity: 500, unit: .grams, category: .meat, expiry: Date.now.addingTimeInterval(86400))
     
     var body: some View {
         Text(myIngredient.display)

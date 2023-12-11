@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Ingredient {
+struct Ingredient: Hashable {
     let name: String
     var measurement: Measurement<Dimension>
     let category: IngredientCategory
@@ -31,10 +31,21 @@ enum IngredientCategory: String {
 }
 
 struct ContentView: View {
-    let myIngredient: Ingredient = Ingredient(name: "Minced Beef", measurement: Measurement(value: 600, unit: UnitMass.grams), category: .meat, expiry: Date.now.addingTimeInterval(86400))
+    let ingredients = [Ingredient(name: "Minced Beef", measurement: Measurement(value: 600, unit: UnitMass.grams), category: .meat, expiry: Date.now.addingTimeInterval(86400)),
+                       Ingredient(name: "Whole Milk", measurement: Measurement(value: 500, unit: UnitVolume.liters), category: .dairy, expiry: Date.now),
+                       Ingredient(name: "Spirali Pasta", measurement: Measurement(value: 1, unit: UnitMass.kilograms), category: .cupboard, expiry: Date.now.addingTimeInterval(8640000)),
+                       Ingredient(name: "Greek Yoghurt", measurement: Measurement(value: 250, unit: UnitVolume.milliliters), category: .dairy, expiry: Date.now.addingTimeInterval(86400))]
     
     var body: some View {
-        Text(myIngredient.display)
+        Form {
+            Section {
+                ForEach(ingredients, id: \.self) {
+                    Text($0.display)
+                }
+                
+            }
+        }
+
     }
 }
 

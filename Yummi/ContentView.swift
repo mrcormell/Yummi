@@ -36,13 +36,19 @@ struct ContentView: View {
                        Ingredient(name: "Spirali Pasta", measurement: Measurement(value: 1, unit: UnitMass.kilograms), category: .cupboard, expiry: Date.now.addingTimeInterval(8640000)),
                        Ingredient(name: "Greek Yoghurt", measurement: Measurement(value: 250, unit: UnitVolume.milliliters), category: .dairy, expiry: Date.now.addingTimeInterval(86400))]
     
+    @State var currentIngredientIndex = 0
+    
     var body: some View {
         Form {
             Section {
-                ForEach(ingredients, id: \.self) {
-                    Text($0.display)
+                Text(ingredients[currentIngredientIndex].display)
+                Button("Next Ingredient") {
+                    if currentIngredientIndex + 1 >= ingredients.count {
+                        currentIngredientIndex = 0
+                    } else {
+                        currentIngredientIndex += 1
+                    }
                 }
-                
             }
         }
 

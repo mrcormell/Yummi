@@ -26,9 +26,9 @@ final class YummiUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        XCTAssertEqual(app.staticTexts.firstMatch.label, "600.0 g of Minced Beef (Meat) which expires on December 12, 2023")
+        XCTAssertEqual(app.staticTexts.firstMatch.label, "1Kg of Minced Beef (Meat) which expires on 21st February 2024")
         app.collectionViews.buttons["Next"].tap()
-        XCTAssertEqual(app.staticTexts.firstMatch.label, "500.0 L of Whole Milk (Dairy) which expires on December 11, 2023")
+        XCTAssertEqual(app.staticTexts.firstMatch.label, "1Kg of Minced Pork (Meat) which expires on 21st February 2024")
 
     }
     

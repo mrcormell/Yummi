@@ -7,37 +7,6 @@
 
 import SwiftUI
 
-struct Ingredient: Hashable {
-    let name: String
-    var measurement: Measurement<Dimension>
-    let category: IngredientCategory
-    let expiry: Date
-    
-    var expiryDateDisplay: String {
-        "\(expiry.formatted(date: .long, time: .omitted))"
-    }
-    
-    var measurementDisplayImperial: String {
-        "\(measurement.converted(to: UnitVolume.cups).description)"
-    }
-    
-    var display: String {
-        "\(measurement.description) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
-    }
-    
-    var displayImperial: String {
-        "\(measurementDisplayImperial) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
-    }
-}
-
-enum Unit: String {
-    case grams, millileters, tsp, tbsp, cup
-}
-
-enum IngredientCategory: String, CaseIterable {
-    case meat, fish, dairy, fruit, vegetable, cupboard
-}
-
 struct ContentView: View {
     @State var ingredients = [Ingredient(name: "Minced Beef", measurement: Measurement(value: 600, unit: UnitMass.grams), category: .meat, expiry: Date.now.addingTimeInterval(86400)),
                        Ingredient(name: "Whole Milk", measurement: Measurement(value: 500, unit: UnitVolume.liters), category: .dairy, expiry: Date.now),
@@ -79,6 +48,7 @@ struct ContentView: View {
                 DatePicker("Expiry Date", selection: $selectedExpiryDate, in: Date.now..., displayedComponents: .date)
                 Button("Add") {
                     ingredients.append(Ingredient(name: enteredIngredientName, measurement: Measurement(value: Double(quantity), unit: selectedUnit), category: selectedCategory, expiry: selectedExpiryDate))
+                    currentIngredientIndex = ingredients.count - 1
                 }
             }, header: { Text("Add new ingredient")}
             )

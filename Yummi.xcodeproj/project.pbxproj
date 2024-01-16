@@ -14,6 +14,7 @@
 		B40325AF2B27283300D190CB /* YummiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40325AE2B27283300D190CB /* YummiTests.swift */; };
 		B40325B92B27283300D190CB /* YummiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40325B82B27283300D190CB /* YummiUITests.swift */; };
 		B40325BB2B27283300D190CB /* YummiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40325BA2B27283300D190CB /* YummiUITestsLaunchTests.swift */; };
+		B4EE25102B5693AD005CCC6E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE250F2B5693AD005CCC6E /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B40325B42B27283300D190CB /* YummiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YummiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40325B82B27283300D190CB /* YummiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummiUITests.swift; sourceTree = "<group>"; };
 		B40325BA2B27283300D190CB /* YummiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B4EE250F2B5693AD005CCC6E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 		B403259C2B27283100D190CB /* Yummi */ = {
 			isa = PBXGroup;
 			children = (
+				B4EE250E2B56939E005CCC6E /* View */,
+				B4EE250D2B569399005CCC6E /* Model */,
 				B403259D2B27283100D190CB /* YummiApp.swift */,
-				B403259F2B27283100D190CB /* ContentView.swift */,
 				B40325A12B27283300D190CB /* Assets.xcassets */,
 				B40325A32B27283300D190CB /* Preview Content */,
 			);
@@ -125,6 +128,22 @@
 				B40325BA2B27283300D190CB /* YummiUITestsLaunchTests.swift */,
 			);
 			path = YummiUITests;
+			sourceTree = "<group>";
+		};
+		B4EE250D2B569399005CCC6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4EE250F2B5693AD005CCC6E /* Ingredient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B4EE250E2B56939E005CCC6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B403259F2B27283100D190CB /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +278,7 @@
 			files = (
 				B40325A02B27283100D190CB /* ContentView.swift in Sources */,
 				B403259E2B27283100D190CB /* YummiApp.swift in Sources */,
+				B4EE25102B5693AD005CCC6E /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

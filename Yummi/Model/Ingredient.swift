@@ -14,7 +14,7 @@ struct Ingredient {
     let category: String
     let expiry: String
     
-    func display() -> String {
-        return "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry)"
+    var display: String {
+        "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry)"
     }
 }

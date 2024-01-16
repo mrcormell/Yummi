@@ -14,8 +14,8 @@ struct Ingredient {
     let category: String
     let expiry: Date
     
-    var display: String {
-        "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry.description)"
+    func display() -> String {
+        return "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry.description)"
     }
 }
 
@@ -23,7 +23,7 @@ struct ContentView: View {
     let myIngredient: Ingredient = Ingredient(name: "Minced Beef", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now)
     
     var body: some View {
-        Text(myIngredient.display)
+        Text(myIngredient.display())
     }
 }
 

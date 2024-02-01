@@ -13,7 +13,16 @@ struct RecipesView: View {
     var body: some View {
         List {
             ForEach(recipes, id: \.name) { recipe in
-                Text(recipe.name)
+                HStack {
+                    if recipe.isFavourite {
+                        Image(systemName: "star.fill")
+                    } else {
+                        Image(systemName: "star")
+                    }
+                    Text(recipe.name)
+                    Spacer()
+                    Image(systemName: "\(recipe.ingredients.count).circle")
+                }
             }
         }
     }

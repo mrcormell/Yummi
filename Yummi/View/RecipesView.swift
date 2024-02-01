@@ -14,14 +14,19 @@ struct RecipesView: View {
         List {
             ForEach(recipes, id: \.name) { recipe in
                 HStack {
+                    Image(recipe.imageFilepath)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60,height: 70)
+                        .clipped()
+                    Text(recipe.name)
+                    Spacer()
+                    Image(systemName: "\(recipe.ingredients.count).circle")
                     if recipe.isFavourite {
                         Image(systemName: "star.fill")
                     } else {
                         Image(systemName: "star")
                     }
-                    Text(recipe.name)
-                    Spacer()
-                    Image(systemName: "\(recipe.ingredients.count).circle")
                 }
             }
         }

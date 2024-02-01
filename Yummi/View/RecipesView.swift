@@ -11,10 +11,10 @@ struct RecipesView: View {
     var recipes: [Recipe] = Recipe.examples
     
     var body: some View {
-        VStack {
-            Text("\(recipes[0].name)")
-            Text("\(recipes[1].name)")
-            Text("\(recipes[2].name)")
+        List {
+            ForEach(recipes, id: \.name) { recipe in
+                Text(recipe.name)
+            }
         }
     }
 }

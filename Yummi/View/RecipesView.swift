@@ -12,7 +12,7 @@ struct RecipesView: View {
     
     var body: some View {
         List {
-            ForEach(recipes, id: \.name) { recipe in
+            ForEach(recipes) { recipe in
                 Text(recipe.name)
             }
         }

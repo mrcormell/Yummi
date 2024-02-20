@@ -12,9 +12,13 @@ struct Ingredient {
     var quantity: Int
     let unit: String
     let category: String
-    let expiry: String
+    let expiry: Date
+    
+    var expiryDateDisplay: String {
+        "\(expiry.formatted(date: .long, time: .omitted))"
+    }
     
     var display: String {
-        "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiry)"
+        "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiryDateDisplay)"
     }
 }

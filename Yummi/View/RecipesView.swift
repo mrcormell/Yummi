@@ -10,9 +10,13 @@ import SwiftUI
 struct RecipesView: View {
     var recipes: [Recipe] = Recipe.examples
     
+    var sortedByRatingRecipes: [Recipe] {
+        recipes.sorted(by: { $0.rating > $1.rating })
+    }
+    
     var body: some View {
         List {
-            ForEach(recipes, id: \.name) { recipe in
+            ForEach(sortedByRatingRecipes, id: \.name) { recipe in
                 HStack {
                     Image(recipe.imageFilepath)
                         .resizable()

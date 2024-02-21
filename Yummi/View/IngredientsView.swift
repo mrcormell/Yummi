@@ -10,7 +10,6 @@ import SwiftUI
 struct IngredientsView: View {
     @State private var myIngredients: [Ingredient] = [Ingredient(name: "Minced Beef", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now),Ingredient(name: "Minced Pork", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now)]
     
-    @State private var currentIngredientIndex = 0
     @State private var newIngredientName = ""
     @State private var newIngredientQuantity = 1
     @State private var newIngredientUnit = "g"
@@ -20,12 +19,9 @@ struct IngredientsView: View {
     var body: some View {
         Form {
             Section {
-                Text(myIngredients[currentIngredientIndex].display)
-                Button("Next") {
-                    if currentIngredientIndex >= myIngredients.count - 1 {
-                        currentIngredientIndex = 0
-                    } else {
-                        currentIngredientIndex += 1
+                List {
+                    ForEach(myIngredients) { ingredient in
+                        Text(ingredient.display)
                     }
                 }
             }
@@ -50,7 +46,6 @@ struct IngredientsView: View {
                     newIngredientName = ""
                     newIngredientQuantity = 1
                     newIngredientExpiry = Date.now
-                    currentIngredientIndex = myIngredients.count - 1
                 }
             }, header: { Text("Add a new ingredient")})
         }

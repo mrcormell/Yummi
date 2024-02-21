@@ -19,7 +19,11 @@ struct RecipesView: View {
                         .scaledToFill()
                         .frame(width: 60,height: 70)
                         .clipped()
-                    Text(recipe.name)
+                    VStack(alignment: .leading) {
+                        Text(recipe.name)
+                        Text("Serves \(recipe.numberServes)")
+                            .font(.caption)
+                    }
                     Spacer()
                     Image(systemName: "\(recipe.ingredients.count).circle")
                     if recipe.isFavourite {

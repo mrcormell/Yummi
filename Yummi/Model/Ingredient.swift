@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Ingredient: Hashable {
+struct Ingredient: Identifiable, Hashable {
+    let id: UUID = UUID()
     let name: String
     var measurement: Measurement<Dimension>
     let category: IngredientCategory

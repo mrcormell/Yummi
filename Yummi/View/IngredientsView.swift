@@ -22,10 +22,9 @@ struct IngredientsView: View {
     var body: some View {
         Form {
             Section {
-                List {
-                    ForEach(ingredients) { ingredient in
+                List($ingredients, id: \.id, editActions: .delete) { $ingredient in
                         Text(ingredient.display)
-                    }
+
                 }
             }
             Section(content: {

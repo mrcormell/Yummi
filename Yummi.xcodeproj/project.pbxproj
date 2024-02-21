@@ -18,6 +18,7 @@
 		B4EE25162B6BF998005CCC6E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25152B6BF998005CCC6E /* Recipe.swift */; };
 		B4EE25182B6BFC3D005CCC6E /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25172B6BFC3D005CCC6E /* RecipesView.swift */; };
 		B4EE25202B864DF6005CCC6E /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE251F2B864DF6005CCC6E /* IngredientsView.swift */; };
+		B4EE25222B86549D005CCC6E /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25212B86549D005CCC6E /* StarRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		B4EE25152B6BF998005CCC6E /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B4EE25172B6BFC3D005CCC6E /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		B4EE251F2B864DF6005CCC6E /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
+		B4EE25212B86549D005CCC6E /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				B403259F2B27283100D190CB /* ContentView.swift */,
 				B4EE25172B6BFC3D005CCC6E /* RecipesView.swift */,
 				B4EE251F2B864DF6005CCC6E /* IngredientsView.swift */,
+				B4EE25212B86549D005CCC6E /* StarRatingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EE25222B86549D005CCC6E /* StarRatingView.swift in Sources */,
 				B40325A02B27283100D190CB /* ContentView.swift in Sources */,
 				B4EE25202B864DF6005CCC6E /* IngredientsView.swift in Sources */,
 				B403259E2B27283100D190CB /* YummiApp.swift in Sources */,

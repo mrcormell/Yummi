@@ -27,6 +27,10 @@ struct RecipesView: View {
                         Text(recipe.name)
                         Text("Serves \(recipe.numberServes)")
                             .font(.caption)
+                            .padding(.bottom, 5)
+                        StarRatingView(rating: recipe.rating)
+                            .font(.caption)
+                            .foregroundStyle(Color.yellow)
                     }
                     Spacer()
                     Image(systemName: "\(recipe.ingredients.count).circle")

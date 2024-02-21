@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct StarRatingView: View {
+    var rating: Int
+    let maximumRating = 5
+    var offImage = Image(systemName: "star")
+    var onImage = Image(systemName: "star.fill")
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            ForEach(1...maximumRating, id: \.self) { number in
+                if number > rating {
+                    offImage
+                    
+                } else {
+                    onImage
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    StarRatingView()
+    StarRatingView(rating: 3)
 }

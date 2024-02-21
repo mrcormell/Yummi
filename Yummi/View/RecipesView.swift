@@ -15,32 +15,18 @@ struct RecipesView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(sortedByRatingRecipes, id: \.name) { recipe in
-                HStack {
-                    Image(recipe.imageFilepath)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 60,height: 70)
-                        .clipped()
-                    VStack(alignment: .leading) {
-                        Text(recipe.name)
-                        Text("Serves \(recipe.numberServes)")
-                            .font(.caption)
-                            .padding(.bottom, 5)
-                        StarRatingView(rating: recipe.rating)
-                            .font(.caption)
-                            .foregroundStyle(Color.yellow)
-                    }
-                    Spacer()
-                    Image(systemName: "\(recipe.ingredients.count).circle")
-                    if recipe.isFavourite {
-                        Image(systemName: "star.fill")
-                    } else {
-                        Image(systemName: "star")
-                    }
+        NavigationStack {
+            List {
+                ForEach(sortedByRatingRecipes, id: \.name) { recipe in
+                    NavigationLink(destination: {
+                        RecipeDetailView(recipe: recipe)
+                    }, label: {
+                        RecipeListItemView(recipe: recipe)
+                    })
+                    
                 }
             }
+            .navigationTitle("Recipes")
         }
     }
 }

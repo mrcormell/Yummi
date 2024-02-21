@@ -24,5 +24,9 @@ struct Recipe {
          
          ]
     }
+    
+    static var example: Recipe {
+        Recipe.examples[0]
+    }
     #endif
 }

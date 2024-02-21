@@ -22,8 +22,12 @@ struct Ingredient: Identifiable, Hashable {
         "\(measurement.converted(to: UnitVolume.cups).description)"
     }
     
+    var simpleDisplay: String {
+        "\(measurement.description) of \(name)"
+    }
+    
     var display: String {
-        "\(measurement.description) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
+        "\(simpleDisplay) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
     }
     
     var displayImperial: String {

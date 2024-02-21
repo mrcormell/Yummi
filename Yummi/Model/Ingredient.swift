@@ -22,4 +22,8 @@ struct Ingredient: Identifiable {
     var display: String {
         "\(quantity)\(unit) of \(name) (\(category)) which expires on \(expiryDateDisplay)"
     }
+    
+    var simpleDisplay: String {
+        "\(quantity)\(unit) of \(name)"
+    }
 }

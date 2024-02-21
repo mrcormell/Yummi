@@ -11,10 +11,15 @@ struct RecipesView: View {
     var recipes: [Recipe] = Recipe.examples
     
     var body: some View {
-        List {
-            ForEach(recipes) { recipe in
-                Text(recipe.name)
+        NavigationStack {
+            List {
+                ForEach(recipes) { recipe in
+                    NavigationLink(recipe.name) {
+                        RecipeDetailView(recipe: recipe)
+                    }
+                }
             }
+            .navigationTitle("Recipes")
         }
     }
 }

@@ -23,5 +23,9 @@ struct Recipe: Identifiable {
          Recipe(name:"Tomato Sandwich", ingredients: [Ingredient(name: "Tomato", quantity: 1, unit: "units", category: "Fruit / Vegetable", expiry: Date.now),Ingredient(name: "Bread", quantity: 2, unit: "units", category: "Cupboard", expiry: Date.now)],isFavourite: false, rating: 2),
          Recipe(name:"Tomato Sandwich", ingredients: [Ingredient(name: "Tomato", quantity: 1, unit: "units", category: "Fruit / Vegetable", expiry: Date.now),Ingredient(name: "Bread", quantity: 2, unit: "units", category: "Cupboard", expiry: Date.now)],isFavourite: true, rating: 4)]
     }
+    
+    static var example: Recipe {
+        Recipe.examples[0]
+    }
     #endif
 }

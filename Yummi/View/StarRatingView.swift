@@ -18,7 +18,6 @@ struct StarRatingView: View {
             ForEach(1...maximumRating, id: \.self) { number in
                 if number > rating {
                     offImage
-                    
                 } else {
                     onImage
                 }

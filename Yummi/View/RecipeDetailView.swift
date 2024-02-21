@@ -12,11 +12,23 @@ struct RecipeDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Rating: \(recipe.rating)/5")
+            Image(recipe.imageFilepath)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 200)
+                .clipped()
+            Text("Rating").bold().padding(.top)
+            StarRatingView(rating: recipe.rating)
+                .foregroundStyle(Color.orange)
+                .padding(.vertical, 5)
             Divider()
+            Text("Ingredients").bold()
             ForEach(recipe.ingredients) { ingredient in
                 Text(ingredient.simpleDisplay)
             }
+            Divider()
+            Text("Steps").bold()
+            Text("\(recipe.steps)")
             Spacer()
         }
         .padding()

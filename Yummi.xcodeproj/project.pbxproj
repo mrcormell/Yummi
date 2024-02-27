@@ -21,6 +21,7 @@
 		B4EE25222B86549D005CCC6E /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25212B86549D005CCC6E /* StarRatingView.swift */; };
 		B4EE25242B8657A4005CCC6E /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25232B8657A4005CCC6E /* RecipeDetailView.swift */; };
 		B4EE25262B865886005CCC6E /* RecipeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25252B865886005CCC6E /* RecipeListItemView.swift */; };
+		B4EE256B2B8E3060005CCC6E /* InventoryIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE256A2B8E3060005CCC6E /* InventoryIngredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B4EE25212B86549D005CCC6E /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		B4EE25232B8657A4005CCC6E /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		B4EE25252B865886005CCC6E /* RecipeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListItemView.swift; sourceTree = "<group>"; };
+		B4EE256A2B8E3060005CCC6E /* InventoryIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryIngredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				B4EE250F2B5693AD005CCC6E /* Ingredient.swift */,
 				B4EE25152B6BF998005CCC6E /* Recipe.swift */,
+				B4EE256A2B8E3060005CCC6E /* InventoryIngredient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4EE25222B86549D005CCC6E /* StarRatingView.swift in Sources */,
+				B4EE256B2B8E3060005CCC6E /* InventoryIngredient.swift in Sources */,
 				B40325A02B27283100D190CB /* ContentView.swift in Sources */,
 				B4EE25202B864DF6005CCC6E /* IngredientsView.swift in Sources */,
 				B403259E2B27283100D190CB /* YummiApp.swift in Sources */,

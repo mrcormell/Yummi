@@ -12,26 +12,21 @@ struct Ingredient: Identifiable, Hashable {
     let name: String
     var measurement: Measurement<Dimension>
     let category: IngredientCategory
-    let expiry: Date
+        
+    var simpleDisplay: String {
+        "\(measurement.description) of \(name)"
+    }
     
-    var expiryDateDisplay: String {
-        "\(expiry.formatted(date: .long, time: .omitted))"
+    var display: String {
+        "\(simpleDisplay) (\(category.rawValue))"
     }
     
     var measurementDisplayImperial: String {
         "\(measurement.converted(to: UnitVolume.cups).description)"
     }
     
-    var simpleDisplay: String {
-        "\(measurement.description) of \(name)"
-    }
-    
-    var display: String {
-        "\(simpleDisplay) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
-    }
-    
     var displayImperial: String {
-        "\(measurementDisplayImperial) of \(name) (\(category.rawValue)) which expires on \(expiryDateDisplay)"
+        "\(measurementDisplayImperial) of \(name) (\(category.rawValue))"
     }
 }
 

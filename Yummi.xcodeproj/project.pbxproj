@@ -23,6 +23,7 @@
 		B4EE25262B865886005CCC6E /* RecipeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25252B865886005CCC6E /* RecipeListItemView.swift */; };
 		B4EE256B2B8E3060005CCC6E /* InventoryIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE256A2B8E3060005CCC6E /* InventoryIngredient.swift */; };
 		B4EE256E2B8E32C8005CCC6E /* NewIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE256D2B8E32C8005CCC6E /* NewIngredientViewModel.swift */; };
+		B4EE25702B8E3500005CCC6E /* IngredientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE256F2B8E3500005CCC6E /* IngredientsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B4EE25252B865886005CCC6E /* RecipeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListItemView.swift; sourceTree = "<group>"; };
 		B4EE256A2B8E3060005CCC6E /* InventoryIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryIngredient.swift; sourceTree = "<group>"; };
 		B4EE256D2B8E32C8005CCC6E /* NewIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIngredientViewModel.swift; sourceTree = "<group>"; };
+		B4EE256F2B8E3500005CCC6E /* IngredientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				B4EE256D2B8E32C8005CCC6E /* NewIngredientViewModel.swift */,
+				B4EE256F2B8E3500005CCC6E /* IngredientsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				B40325A02B27283100D190CB /* ContentView.swift in Sources */,
 				B4EE25202B864DF6005CCC6E /* IngredientsView.swift in Sources */,
 				B403259E2B27283100D190CB /* YummiApp.swift in Sources */,
+				B4EE25702B8E3500005CCC6E /* IngredientsViewModel.swift in Sources */,
 				B4EE25182B6BFC3D005CCC6E /* RecipesView.swift in Sources */,
 				B4EE25102B5693AD005CCC6E /* Ingredient.swift in Sources */,
 				B4EE25262B865886005CCC6E /* RecipeListItemView.swift in Sources */,

@@ -10,7 +10,6 @@ import Foundation
 @Observable 
 class NewIngredientViewModel {
     
-// only ever one shared view model object allowed
     static let shared = NewIngredientViewModel()
 
     var enteredIngredientName = ""
@@ -20,5 +19,9 @@ class NewIngredientViewModel {
     var selectedUnit: Dimension = UnitMass.kilograms
 
     private init() {}
+    
+    func createNewIngredient() -> InventoryIngredient {
+        return InventoryIngredient(ingredient: Ingredient(name: enteredIngredientName, measurement: Measurement(value: Double(quantity), unit: selectedUnit), category: selectedCategory), expiry: selectedExpiryDate)
+    }
 
 }

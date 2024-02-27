@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct IngredientsView: View {
-    @State var ingredients = InventoryIngredient.examples.sorted(by: { $0.expiry < $1.expiry })
     @State private var newIngredientViewModel = NewIngredientViewModel.shared
+    @State private var ingredientsViewModel = IngredientsViewModel.shared
     
     var body: some View {
         Form {
             Section {
-                List($ingredients, id: \.id, editActions: .delete) { $ingredient in
+                List($ingredientsViewModel.ingredients, id: \.id, editActions: .delete) { $ingredient in
                         Text(ingredient.display)
                 }
             }
@@ -33,8 +33,7 @@ struct IngredientsView: View {
                 }
                 DatePicker("Expiry Date", selection: $newIngredientViewModel.selectedExpiryDate, in: Date.now..., displayedComponents: .date)
                 Button("Add") {
-                    ingredients.append(InventoryIngredient(ingredient: Ingredient(name: newIngredientViewModel.enteredIngredientName, measurement: Measurement(value: Double(newIngredientViewModel.quantity), unit: newIngredientViewModel.selectedUnit), category: newIngredientViewModel.selectedCategory), expiry: newIngredientViewModel.selectedExpiryDate))
-                    ingredients.sort(by: { $0.expiry < $1.expiry })
+                    ingredientsViewModel.addNewIngredient()
                 }
             }, header: { Text("Add new ingredient")}
             )

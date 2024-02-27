@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isShowingRecipesView = false
+    @State private var contentViewModel = ContentViewModel()
     
     var body: some View {
         VStack {
-            Toggle(isOn: $isShowingRecipesView, label: {
+            Toggle(isOn: $contentViewModel.isShowingRecipesView, label: {
                 Text("Show Recipes")
             }).padding(.horizontal, 20)
-            if isShowingRecipesView {
-                RecipesView()
+            if contentViewModel.isShowingRecipesView {
+                RecipesView(recipesViewModel: contentViewModel.recipesViewModel, getRecipesCanMake: contentViewModel.recipesCanMake)
             } else {
                 IngredientsView()
             }

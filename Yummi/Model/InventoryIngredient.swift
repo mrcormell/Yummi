@@ -28,7 +28,10 @@ struct InventoryIngredient: Identifiable {
         [InventoryIngredient(ingredient: Ingredient(name: "Minced Beef", measurement: Measurement(value: 600, unit: UnitMass.grams), category: .meat), expiry: Date.now.addingTimeInterval(86400)),
                                   InventoryIngredient(ingredient: Ingredient(name: "Whole Milk", measurement: Measurement(value: 500, unit: UnitVolume.liters), category: .dairy), expiry: Date.now),
                                   InventoryIngredient(ingredient: Ingredient(name: "Spirali Pasta", measurement: Measurement(value: 1, unit: UnitMass.kilograms), category: .cupboard), expiry: Date.now.addingTimeInterval(8640000)),
-                                  InventoryIngredient(ingredient:Ingredient(name: "Greek Yoghurt", measurement: Measurement(value: 250, unit: UnitVolume.milliliters), category: .dairy), expiry: Date.now.addingTimeInterval(86400))]
+                                  InventoryIngredient(ingredient:Ingredient(name: "Greek Yoghurt", measurement: Measurement(value: 250, unit: UnitVolume.milliliters), category: .dairy), expiry: Date.now.addingTimeInterval(86400)),
+                                  InventoryIngredient(ingredient:Ingredient(name: "Tomato", measurement: Measurement(value: 50, unit: UnitMass.grams), category: .vegetable), expiry: Date.now),
+                                  InventoryIngredient(ingredient:Ingredient(name: "Bacon", measurement: Measurement(value: 50, unit: UnitMass.grams), category: .vegetable), expiry: Date.now),
+                                  InventoryIngredient(ingredient:Ingredient(name: "Bread", measurement: Measurement(value: 100, unit: UnitMass.grams), category: .cupboard), expiry: Date.now)]
     }
     #endif
 }

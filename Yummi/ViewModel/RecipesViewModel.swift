@@ -10,6 +10,8 @@ import Foundation
 @Observable
 class RecipesViewModel {
     var recipes: [Recipe] = Recipe.examples
+    var searchText = ""
+    var onlyShowRecipesThatYouHaveIngredientsFor: Bool = false
     
     var sortedByRatingRecipes: [Recipe] {
         if searchText.isEmpty {
@@ -20,6 +22,4 @@ class RecipesViewModel {
         }
         
     }
-    
-    var searchText = ""
 }

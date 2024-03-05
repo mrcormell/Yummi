@@ -9,16 +9,13 @@ import Foundation
 
 @Observable
 class IngredientsViewModel {
-
     static let shared = IngredientsViewModel()
-    
-    let newIngredientViewModel = NewIngredientViewModel.shared
     var ingredients: [InventoryIngredient] = InventoryIngredient.examples.sorted(by: { $0.expiry < $1.expiry })
 
     private init() {}
     
-    func addNewIngredient() {
-        ingredients.append(newIngredientViewModel.createNewIngredient())
+    func add(ingredient: InventoryIngredient) {
+        ingredients.append(ingredient)
         ingredients.sort(by: { $0.expiry < $1.expiry })
     }
     

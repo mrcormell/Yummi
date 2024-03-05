@@ -9,6 +9,8 @@ import Foundation
 
 @Observable
 class RecipesViewModel {
+    let ingredientsViewModel = IngredientsViewModel.shared
+    
     var recipes: [Recipe] = Recipe.examples
     var searchText = ""
     var onlyShowRecipesThatYouHaveIngredientsFor: Bool = false
@@ -21,5 +23,18 @@ class RecipesViewModel {
                 .sorted(by: { $0.rating > $1.rating })
         }
         
+    }
+    
+    func recipesCanMake() -> [Recipe] {
+        return recipes.filter({
+            for ingredient in $0.ingredients {
+                if !(ingredientsViewModel.ingredients.map({$0.ingredient}).contains(where: { ingredientInPantry in
+                    ingredientInPantry.name == ingredient.name
+                })) {
+                    return false
+                }
+            }
+            return true
+        })
     }
 }

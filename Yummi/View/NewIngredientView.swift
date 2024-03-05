@@ -35,7 +35,7 @@ struct NewIngredientView: View {
 #Preview {
     Form {
         Section(content: {
-            NewIngredientView(newIngredientViewModel: NewIngredientViewModel.shared)
+            NewIngredientView(newIngredientViewModel: NewIngredientViewModel())
         }, header: { Text("Add new ingredient")}
         )
     }

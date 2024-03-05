@@ -9,8 +9,6 @@ import Foundation
 
 @Observable 
 class NewIngredientViewModel {
-    static let shared = NewIngredientViewModel()
-
     let ingredientViewModel = IngredientsViewModel.shared
     
     var enteredIngredientName = ""
@@ -18,8 +16,6 @@ class NewIngredientViewModel {
     var selectedExpiryDate: Date = Date.now
     var quantity: Int = 1
     var selectedUnit: Dimension = UnitMass.kilograms
-    
-    private init() {}
     
     func addNewIngredient() {
         let newIngredient = InventoryIngredient(ingredient: Ingredient(name: enteredIngredientName, measurement: Measurement(value: Double(quantity), unit: selectedUnit), category: selectedCategory), expiry: selectedExpiryDate)

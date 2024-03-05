@@ -18,7 +18,7 @@ struct IngredientsView: View {
                 }
             }
             Section(content: {
-                NewIngredientView(newIngredientViewModel: ingredientsViewModel.newIngredientViewModel, addNewIngredient: ingredientsViewModel.addNewIngredient)
+                NewIngredientView(newIngredientViewModel: NewIngredientViewModel())
             }, header: { Text("Add new ingredient")}
             )
         }

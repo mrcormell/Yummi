@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @Bindable var recipesViewModel: RecipesViewModel
-    let getRecipesCanMake: () -> [Recipe]
+    @State var recipesViewModel: RecipesViewModel = RecipesViewModel()
     
     var body: some View {
         NavigationStack {
             List {
                 Toggle("With My Ingredients", isOn: $recipesViewModel.onlyShowRecipesThatYouHaveIngredientsFor)
-                ForEach(recipesViewModel.onlyShowRecipesThatYouHaveIngredientsFor ? getRecipesCanMake() : recipesViewModel.sortedByRatingRecipes, id: \.name) { recipe in
+                ForEach(recipesViewModel.onlyShowRecipesThatYouHaveIngredientsFor ? recipesViewModel.recipesCanMake() : recipesViewModel.sortedByRatingRecipes, id: \.name) { recipe in
                     NavigationLink(destination: {
                         RecipeDetailView(recipe: recipe)
                     }, label: {
@@ -31,5 +30,5 @@ struct RecipesView: View {
 }
 
 #Preview {
-    RecipesView(recipesViewModel: RecipesViewModel(), getRecipesCanMake: { return Recipe.examples.dropLast(1)})
+    RecipesView()
 }

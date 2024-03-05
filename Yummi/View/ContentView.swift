@@ -16,7 +16,7 @@ struct ContentView: View {
                 Text("Show Recipes")
             }).padding(.horizontal, 20)
             if contentViewModel.isShowingRecipesView {
-                RecipesView(recipesViewModel: contentViewModel.recipesViewModel, getRecipesCanMake: contentViewModel.recipesCanMake)
+                RecipesView()
             } else {
                 IngredientsView()
             }

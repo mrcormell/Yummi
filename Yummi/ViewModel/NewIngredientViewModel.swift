@@ -9,7 +9,7 @@ import Foundation
 
 @Observable 
 class NewIngredientViewModel {
-    let ingredientViewModel = IngredientsViewModel.shared
+    private let ingredientViewModel = IngredientsViewModel.shared
     
     var enteredIngredientName = ""
     var selectedCategory = IngredientCategory.cupboard

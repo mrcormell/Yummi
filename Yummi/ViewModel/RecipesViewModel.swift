@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class RecipesViewModel {
-    let ingredientsViewModel = IngredientsViewModel.shared
+    private let ingredientsViewModel = IngredientsViewModel.shared
     
     var recipes: [Recipe] = Recipe.examples
     var searchText = ""

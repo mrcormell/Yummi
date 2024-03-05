@@ -9,12 +9,13 @@ import SwiftUI
 
 struct RecipesView: View {
     @State var recipesViewModel: RecipesViewModel = RecipesViewModel()
+    @Environment(IngredientsViewModel.self) private var ingredientsViewModel: IngredientsViewModel
     
     var body: some View {
         NavigationStack {
             List {
                 Toggle("With My Ingredients", isOn: $recipesViewModel.onlyShowRecipesThatYouHaveIngredientsFor)
-                ForEach(recipesViewModel.onlyShowRecipesThatYouHaveIngredientsFor ? recipesViewModel.recipesCanMake() : recipesViewModel.sortedByRatingRecipes, id: \.name) { recipe in
+                ForEach(recipesViewModel.onlyShowRecipesThatYouHaveIngredientsFor ? recipesViewModel.recipes(from: ingredientsViewModel.ingredients) : recipesViewModel.sortedByRatingRecipes, id: \.name) { recipe in
                     NavigationLink(destination: {
                         RecipeDetailView(recipe: recipe)
                     }, label: {

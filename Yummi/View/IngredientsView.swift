@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct IngredientsView: View {
-    @State private var ingredientsViewModel = IngredientsViewModel.shared
+    @Environment(IngredientsViewModel.self) private var ingredientsViewModel: IngredientsViewModel
     
     var body: some View {
+        @Bindable var ingredientsViewModel = ingredientsViewModel
+        
         Form {
             Section {
                 List($ingredientsViewModel.ingredients, id: \.id, editActions: .delete) { $ingredient in

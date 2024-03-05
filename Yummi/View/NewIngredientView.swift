@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewIngredientView: View {
     @Bindable var newIngredientViewModel: NewIngredientViewModel
+    @Environment(IngredientsViewModel.self) private var ingredientsViewModel: IngredientsViewModel
     
     var body: some View {
         Group {
@@ -26,7 +27,8 @@ struct NewIngredientView: View {
             }
             DatePicker("Expiry Date", selection: $newIngredientViewModel.selectedExpiryDate, in: Date.now..., displayedComponents: .date)
             Button("Add") {
-                newIngredientViewModel.addNewIngredient()
+                let ingredient = newIngredientViewModel.createNewIngredient()
+                ingredientsViewModel.add(ingredient: ingredient)
             }
         }
     }

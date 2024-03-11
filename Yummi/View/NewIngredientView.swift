@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewIngredientView: View {
-    @Bindable var newIngredientViewModel: NewIngredientViewModel
+    @State var newIngredientViewModel = NewIngredientViewModel.shared
     
     var body: some View {
         Group {

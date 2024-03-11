@@ -8,8 +8,8 @@
 import Foundation
 
 @Observable 
-class NewIngredientViewModel {
-    private let ingredientViewModel = IngredientsViewModel.shared
+class NewIngredientViewModel {    
+    static let shared = NewIngredientViewModel()
     
     var enteredIngredientName = ""
     var selectedCategory = IngredientCategory.cupboard
@@ -17,9 +17,11 @@ class NewIngredientViewModel {
     var quantity: Int = 1
     var selectedUnit: Dimension = UnitMass.kilograms
     
+    private init() {}
+    
     func addNewIngredient() {
         let newIngredient = InventoryIngredient(ingredient: Ingredient(name: enteredIngredientName, measurement: Measurement(value: Double(quantity), unit: selectedUnit), category: selectedCategory), expiry: selectedExpiryDate)
-        ingredientViewModel.add(ingredient: newIngredient)
+        IngredientsViewModel.shared.add(ingredient: newIngredient)
     }
 
 }

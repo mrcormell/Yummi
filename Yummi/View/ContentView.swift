@@ -19,6 +19,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Pantry", systemImage: "cube.box")
                 }
+            
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
     }
 }

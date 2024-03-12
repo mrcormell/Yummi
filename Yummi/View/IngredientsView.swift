@@ -15,6 +15,7 @@ struct IngredientsView: View {
     @State private var newIngredientUnit = "g"
     @State private var newIngredientCategory = "Meat"
     @State private var newIngredientExpiry = Date.now
+    @State private var showingAddNewIngredient = false
     
     var body: some View {
         Form {
@@ -24,30 +25,38 @@ struct IngredientsView: View {
                         Text(ingredient.display)
                     }
                 }
+                Button("Add to Pantry") {
+                    showingAddNewIngredient = true
+                }
             }
-            Section(content: {
-                TextField("Name", text: $newIngredientName)
-                Picker("Category", selection: $newIngredientCategory) {
-                    Text("Meat").tag("Meat")
-                    Text("Fish").tag("Fish")
-                    Text("Dairy").tag("Dairy")
-                    Text("Cupboard").tag("Cupboard")
-                    Text("Fruit / Vegetable").tag("Fruit / Vegetable")
+        }
+        .sheet(isPresented: $showingAddNewIngredient) {
+            Form {
+                Section {
+                    TextField("Name", text: $newIngredientName)
+                    Picker("Category", selection: $newIngredientCategory) {
+                        Text("Meat").tag("Meat")
+                        Text("Fish").tag("Fish")
+                        Text("Dairy").tag("Dairy")
+                        Text("Cupboard").tag("Cupboard")
+                        Text("Fruit / Vegetable").tag("Fruit / Vegetable")
+                    }
+                    Picker("Unit", selection: $newIngredientUnit) {
+                        Text("g").tag("g")
+                        Text("ml").tag("ml")
+                        Text("units").tag("units")
+                    }
+                    Stepper("\(newIngredientQuantity) \(newIngredientUnit)", value: $newIngredientQuantity)
+                    DatePicker("Expiry Date", selection: $newIngredientExpiry, displayedComponents: .date)
+                    Button("Add") {
+                        myIngredients.append(Ingredient(name: newIngredientName, quantity: newIngredientQuantity, unit: newIngredientUnit, category: newIngredientCategory, expiry: newIngredientExpiry))
+                        newIngredientName = ""
+                        newIngredientQuantity = 1
+                        newIngredientExpiry = Date.now
+                        showingAddNewIngredient = false
+                    }
                 }
-                Picker("Unit", selection: $newIngredientUnit) {
-                    Text("g").tag("g")
-                    Text("ml").tag("ml")
-                    Text("units").tag("units")
-                }
-                Stepper("\(newIngredientQuantity) \(newIngredientUnit)", value: $newIngredientQuantity)
-                DatePicker("Expiry Date", selection: $newIngredientExpiry, displayedComponents: .date)
-                Button("Add") {
-                    myIngredients.append(Ingredient(name: newIngredientName, quantity: newIngredientQuantity, unit: newIngredientUnit, category: newIngredientCategory, expiry: newIngredientExpiry))
-                    newIngredientName = ""
-                    newIngredientQuantity = 1
-                    newIngredientExpiry = Date.now
-                }
-            }, header: { Text("Add a new ingredient")})
+            }
         }
     }
 }

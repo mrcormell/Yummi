@@ -12,12 +12,12 @@ struct ContentView: View {
         TabView {
             RecipesView()
                 .tabItem {
-                    Label("Recipes", systemImage: "list.dash")
+                    Label("Recipes", systemImage: "doc.plaintext")
                 }
             
             IngredientsView()
                 .tabItem {
-                    Label("Pantry", systemImage: "square.and.pencil")
+                    Label("Pantry", systemImage: "cube.box")
                 }
         }
     }

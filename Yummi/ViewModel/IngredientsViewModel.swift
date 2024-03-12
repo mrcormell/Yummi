@@ -13,7 +13,7 @@ class IngredientsViewModel {
     // only ever one shared view model object allowed
     static let shared = IngredientsViewModel()
 
-    var myIngredients: [Ingredient] = [Ingredient(name: "Minced Beef", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now),Ingredient(name: "Minced Pork", quantity: 1, unit: "Kg", category: "Meat", expiry: Date.now)]
+    var myIngredients: [Ingredient]
     
     var newIngredientName = ""
     var newIngredientQuantity = 1
@@ -23,7 +23,13 @@ class IngredientsViewModel {
     var showingAddNewIngredient = false
 
     // ensures object can only be initialised internally
-    private init() {}
+    private init() {
+        if let pantry: [Ingredient] = FileManager.default.load(from: "pantry.json") {
+            self.myIngredients = pantry
+        } else {
+            self.myIngredients = []
+        }
+    }
     
     func addNewIngredient() {
         myIngredients.append(Ingredient(name: newIngredientName, quantity: newIngredientQuantity, unit: newIngredientUnit, category: newIngredientCategory, expiry: newIngredientExpiry))
@@ -31,6 +37,12 @@ class IngredientsViewModel {
         newIngredientQuantity = 1
         newIngredientExpiry = Date.now
         showingAddNewIngredient = false
+        
+        saveIngredientsToFile()
+    }
+    
+    private func saveIngredientsToFile() {
+        FileManager.default.save(to: "pantry.json", object: myIngredients)
     }
 
 }

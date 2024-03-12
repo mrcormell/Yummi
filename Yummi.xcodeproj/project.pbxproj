@@ -15,6 +15,7 @@
 		B40325B92B27283300D190CB /* YummiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40325B82B27283300D190CB /* YummiUITests.swift */; };
 		B40325BB2B27283300D190CB /* YummiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40325BA2B27283300D190CB /* YummiUITestsLaunchTests.swift */; };
 		B490F1992BA0AE6800E99141 /* IngredientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490F1982BA0AE6800E99141 /* IngredientsViewModel.swift */; };
+		B490F19C2BA0B01700E99141 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490F19B2BA0B01700E99141 /* FileManager.swift */; };
 		B4EE250C2B5683B8005CCC6E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE250B2B5683B8005CCC6E /* Ingredient.swift */; };
 		B4EE25122B6BF3DB005CCC6E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25112B6BF3DB005CCC6E /* Recipe.swift */; };
 		B4EE25142B6BF662005CCC6E /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE25132B6BF662005CCC6E /* RecipesView.swift */; };
@@ -51,6 +52,7 @@
 		B40325B82B27283300D190CB /* YummiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummiUITests.swift; sourceTree = "<group>"; };
 		B40325BA2B27283300D190CB /* YummiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B490F1982BA0AE6800E99141 /* IngredientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewModel.swift; sourceTree = "<group>"; };
+		B490F19B2BA0B01700E99141 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		B4EE250B2B5683B8005CCC6E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		B4EE25112B6BF3DB005CCC6E /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B4EE25132B6BF662005CCC6E /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		B403259C2B27283100D190CB /* Yummi */ = {
 			isa = PBXGroup;
 			children = (
+				B490F19A2BA0B00B00E99141 /* Extensions */,
 				B490F1972BA0AE5700E99141 /* ViewModel */,
 				B4EE250A2B56836F005CCC6E /* View */,
 				B4EE25092B568366005CCC6E /* Model */,
@@ -147,6 +150,14 @@
 				B490F1982BA0AE6800E99141 /* IngredientsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B490F19A2BA0B00B00E99141 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B490F19B2BA0B01700E99141 /* FileManager.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B4EE25092B568366005CCC6E /* Model */ = {
@@ -305,6 +316,7 @@
 				B403259E2B27283100D190CB /* YummiApp.swift in Sources */,
 				B4EE25142B6BF662005CCC6E /* RecipesView.swift in Sources */,
 				B490F1992BA0AE6800E99141 /* IngredientsViewModel.swift in Sources */,
+				B490F19C2BA0B01700E99141 /* FileManager.swift in Sources */,
 				B4EE250C2B5683B8005CCC6E /* Ingredient.swift in Sources */,
 				B4EE25122B6BF3DB005CCC6E /* Recipe.swift in Sources */,
 			);

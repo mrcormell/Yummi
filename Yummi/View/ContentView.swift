@@ -20,6 +20,11 @@ struct ContentView: View {
                     Label("Pantry", systemImage: "cube.box")
                 }
             
+            MealOfTheDayView()
+                .tabItem {
+                    Label("Daily Meal", systemImage: "sun.max")
+                }
+            
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
